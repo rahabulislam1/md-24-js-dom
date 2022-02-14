@@ -13,20 +13,28 @@
         <h1>Welcome to my Blog</h1>
     </header>
     <main>
-        <section>
-            <article>
+        <section id="section-blogs" class="blogs">
+            <header>
+                <ul id="blog-list">
+                    <li>Blog-1</li>
+                    <li>Blog-2</li>
+                    <li>Blog-3</li>
+                    <li>Blog-4</li>
+                </ul>
+            </header>
+            <article class='blog'>
                 <h3>My Awesome Blog-1</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui esse modi recusandae quas numquam
                     deserunt dignissimos voluptatem dolorem dolor laudantium! Qui commodi nulla veritatis totam
                     molestiae minima temporibus quaerat illum.</p>
             </article>
-            <article>
-                <h3>My Awesome Blog-2</h3>
+            <article class='blog'>
+                <h3 id="second-title">My Awesome Blog-2</h3>
                 <p>Explicabo culpa, placeat molestias, voluptatibus provident eaque pariatur alias reiciendis in
                     repudiandae autem et amet doloribus tempora itaque laborum rem repellat blanditiis ipsum. Ratione
                     voluptas iste atque, explicabo rerum voluptatibus.</p>
             </article>
-            <article>
+            <article class='blog'>
                 <h3>My Awesome Blog-3</h3>
                 <p>Voluptatem eaque blanditiis natus, libero rem, eveniet numquam molestiae, quia cum tempore nesciunt
                     et tempora repellendus voluptatum minus ullam. Eaque deleniti asperiores repellendus aliquam tenetur
@@ -34,6 +42,89 @@
             </article>
         </section>
     </main>
+    <script>
+        const student = { name: 'Kismat Ali', age: 16, height: 68 };
+        // console.log(document.body);
+
+
+        //explore getElementByID 
+        const blogTitles = document.getElementsByTagName('article');
+        // console.log(blogTitles);
+        for (const blog of blogTitles) {
+            // console.log(blog.innerText);
+        }
+
+        const blogTitles2 = document.getElementsByTagName('h3');
+        // console.log(blogTitles);
+        for (const blog of blogTitles2) {
+            // console.log(blog.innerText);
+        }
+        const secondTitle = document.getElementById('second-title');
+        secondTitle.style.color = 'white';
+        secondTitle.style.backgroundColor = 'blue';
+        secondTitle.style.padding = '20px';
+        secondTitle.style.marginLeft = '30px';
+        secondTitle.innerText = 'That was change by RAHABUL';
+
+
+
+
+        //////////////////////////////create and add element by js
+
+        //create/add the element
+        const li = document.createElement('li');
+        li.innerText = 'Blog-5';
+
+        //where to add
+        const ul = document.getElementById('blog-list');
+
+        //append new element
+        ul.appendChild(li);
+
+        //remove an element
+        // console.log(ul.childNodes);
+        console.log(ul.children[3]);
+        ul.removeChild(ul.children[3]);
+
+        // ul.innerHTML = `
+        // <li>New Li</li>
+        // `
+
+
+
+        const addArticle = document.createElement('article');
+        addArticle.classList.add('blog');
+
+        //Method 1 
+        // const addHeader = document.createElement('h3');
+        // addHeader.innerText = 'My Awesome Blog-4 By Js';
+        // const addBlog = document.createElement('p');
+        // addBlog.innerText = 'This blog added by Rahabul Islam by using java script'
+        // addArticle.appendChild(addHeader);
+        // addArticle.appendChild(addBlog);
+
+        //Method 2
+        addArticle.innerHTML = `
+        <h3>My Awesome Blog-4 By Js</h3>
+        <p>This blog added by Rahabul Islam by using java script</p>
+        `
+
+        //parent of article
+        const findLocation = document.getElementById('section-blogs');
+        findLocation.appendChild(addArticle);
+
+
+
+
+        // explore getElementsByClass
+        const blogs = document.getElementsByClassName('blog');
+        for (const blog of blogs) {
+            blog.style.border = '2px solid orange';
+            blog.style.borderRadius = '10px';
+            blog.style.padding = "10px";
+            blog.style.margin = '10px';
+        }
+    </script>
 </body>
 
 </html>
